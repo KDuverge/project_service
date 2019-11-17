@@ -13,8 +13,10 @@ async function getProjects(req, res, next) {
 }
 
 async function createProject(req, res, next) {
-  const { title, description, github_link, website_link, tags } = req.body;
+  let { title, description, github_link, website_link, tags } = req.body;
   const { path } = req.file;
+
+  tags = tags.split(',');
 
   const project_image = new CloudinaryUpload(path, title);
 
@@ -29,6 +31,7 @@ async function createProject(req, res, next) {
   });
 
   const project = await created_project.save();
+
 
   return res.status(203).json({
     _status: {
