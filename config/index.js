@@ -1,12 +1,10 @@
-const MONGO_URI = 'mongodb://localhost/dashboard';
-
 const CLOUDINARY = {
-	CLOUD_NAME: 'doxnupmmy',
-	API_KEY: '699338116428378',
-	API_SECRET: '0Wnw7mMP8Lx0e0cfvQQGGGVVSuQ'
+	CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME,
+	API_KEY: process.env.CLOUDINARY_API_KEY,
+	API_SECRET: process.env.CLOUDINARY_API_SECRET
 };
 
-const SECRET_KEY = 'something_secret';
+const SECRET_KEY = process.env.SECRET_KEY;
 
 module.exports = {
 	MONGO_URI,
